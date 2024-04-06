@@ -8,7 +8,7 @@ Here is a compact knowledgebase version, supports only one user :)
 Database file and structure if doesnt exist will be created on first run, see the `login.php` code. On tests able to load 3000 records in 3 seconds.
 &nbsp;
 
-<video src="https://github.com/wenzhixin/bootstrap-table/assets/3852762/edc4062b-c61d-453b-b3da-09e33198a27d" />
+https://github.com/wenzhixin/bootstrap-table/assets/3852762/edc4062b-c61d-453b-b3da-09e33198a27d
 
 &nbsp;
 ## This project uses the following 3rd-party dependencies :
