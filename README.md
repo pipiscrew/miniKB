@@ -5,7 +5,7 @@ Here is a compact knowledgebase version, supports only one user :)
 * 4 PHP files
 * 4 JS files  
 
-Database file and structure if doesnt exist will be created on first run, see the `login.php` code. On tests able to load 3000 records in 3 seconds.
+Database file and structure if doesnt exist will be created on first run, see the `login.php` code. On tests is able to load 3000 records in 3 seconds.
 &nbsp;
 
 https://github.com/wenzhixin/bootstrap-table/assets/3852762/edc4062b-c61d-453b-b3da-09e33198a27d
@@ -15,6 +15,8 @@ https://github.com/wenzhixin/bootstrap-table/assets/3852762/edc4062b-c61d-453b-b
 * [bootstrap](https://getbootstrap.com/)
 * [summernote](https://github.com/summernote/summernote/) with [jQuery](https://github.com/jquery/jquery)
 * [bootstrap-treeview](https://github.com/jonmiles/bootstrap-treeview)  
+
+ps: the sample database with the 3000 records, borrowed by [Source Code Organizer NET](https://www.pipiscrew.com/threads/source-code-organizer-net-v2-0.8/) as is using the same dbase schema (which introduced on `VB6` flavor at 2010).
 
 &nbsp;
 ## This project is no longer maintained
