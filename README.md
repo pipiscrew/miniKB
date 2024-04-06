@@ -16,7 +16,7 @@ https://github.com/wenzhixin/bootstrap-table/assets/3852762/edc4062b-c61d-453b-b
 * [summernote](https://github.com/summernote/summernote/) with [jQuery](https://github.com/jquery/jquery)
 * [bootstrap-treeview](https://github.com/jonmiles/bootstrap-treeview)  
 
-ps: the sample database with the 3000 records, borrowed by [Source Code Organizer NET](https://www.pipiscrew.com/threads/source-code-organizer-net-v2-0.8/) as is using the same dbase schema (which introduced on `VB6` flavor at 2010).  
+ps: the sample database with the 3000 records, borrowed by [Source Code Organizer NET](https://www.pipiscrew.com/threads/source-code-organizer-net-v2-0.8/) as is using the same dbase schema (which introduced on `VB6` flavor at 2005).  
 
 ---
 
