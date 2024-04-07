@@ -45,7 +45,7 @@ if you still unhappy with this microKB, alternatives as :
 * [raneto](https://raneto.com/) - nodejs with markdown
 * [docsify](https://docsify.js.org/) [[2](https://blog.stackademic.com/the-fast-way-to-create-documents-docsify-b92397947512)] - nodejs with markdown
 * [wiki.js](https://js.wiki/)
-* [mdBook](https://github.com/rust-lang/mdBook) [[2](https://rust-lang.github.io/mdBook/guide/creating.html)]- rust
+* [mdBook](https://github.com/rust-lang/mdBook) [[2](https://rust-lang.github.io/mdBook/guide/creating.html)] - rust
 
 
 ---
