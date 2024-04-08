@@ -717,8 +717,14 @@
 	};
 
 	Tree.prototype.getNodeIdByDBid = function (dbId) {
+		if (typeof(dbId) != typeof(this.nodes[0].href)) {
+			//till < PHP 8.1 the PDO provider returns all dbase field types as string, on v8.1 this changed and return with types.
+			//https://github.com/doctrine/dbal/issues/5228 | https://externals.io/message/113294 | use can still have it as string using the PDO attribute - https://www.php.net/manual/en/migration81.incompatible.php#migration81.incompatible.pdo.mysql
+			dbId = parseInt(dbId);
+		}
+			
 		return this.nodes.filter(node => node.href === dbId);
-   };
+    };
 
 	Tree.prototype.getNodesCount = function () {
 		return this.nodes.length;
