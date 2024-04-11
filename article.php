@@ -12,7 +12,7 @@ if (!isset($_POST['action'])){
 $action = $_POST['action'];
 
 if (!isset($_SESSION["id"])) {
-	$allowedActions = ['GetNodes', 'GetSearchNodes', 'GetArticle'];
+	$allowedActions = ['GetNodes', 'GetSearchNodes', 'GetArticle', 'CanSelectQ'];
 	
 	if (!in_array($action, $allowedActions)) {
 		ReportJS(0, 'User is not logged in');
@@ -48,6 +48,9 @@ switch ($action) {
 		$id = isset($_POST['id']) ? $_POST['id'] : 0;
 
 		MoveSave($id, $parentID);
+		break;
+	case 'CanSelectQ' : //see if UI is different vs dbase via md5
+		CanSelectQ( $_POST['id'], $_POST['md']);
 		break;
 	default :
 		ReportJS(0, 'No action defined!');
@@ -226,3 +229,16 @@ function GetSearchNodes($s){
 	echo json_encode($arr);
 }
 //===========================================
+
+function CanSelectQ($nodeID, $jsMD5) {
+    $db = new dbase();
+    $db->connect_sqlite();
+
+	header("Content-Type: application/json", true);
+	
+	  echo json_encode( array("proceed" =>md5($db->getScalar("select nodecode from codes where nodeid=?", array($nodeID))) == $jsMD5    )  ) ;
+	// echo json_encode( array("php" =>md5($db->getScalar("select nodecode from codes where nodeid=?", array($nodeID))),"js" =>$jsMD5)     )   ;
+	// echo json_encode( array("php" =>($db->getScalar("select nodecode from codes where nodeid=?", array($nodeID))),"js" =>$jsMD5)     )   ;
+
+	// ReportJS(0, 'No action defined!');
+}

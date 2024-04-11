@@ -73,7 +73,8 @@
 		onNodeUnchecked: undefined,
 		onNodeUnselected: undefined,
 		onSearchComplete: undefined,
-		onSearchCleared: undefined
+		onSearchCleared: undefined,
+		onCustomEvent: undefined,
 	};
 
 	_default.options = {
@@ -237,6 +238,10 @@
 			this.$element.on('nodeSelected', this.options.onNodeSelected);
 		}
 
+		if (typeof (this.options.onCustomEvent) === 'function') {
+			this.$element.on('customEventName', this.options.onCustomEvent);
+		}
+		
 		// if (typeof (this.options.onNodeUnchecked) === 'function') {
 		// 	this.$element.on('nodeUnchecked', this.options.onNodeUnchecked);
 		// }
@@ -407,14 +412,23 @@
 
 		if (state === node.state.selected) return;
 
-		if (state) {
+		var shouldAlert = true; // Default value for the boolean
 
+		if (state) {
+			//
+			shouldAlert = this.$element.triggerHandler("customEventName", [node, state]);
+
+			// Check if shouldAlert is false, if so, return without alerting
+			if (!shouldAlert) return;
+			//
+			
 			// If multiSelect false, unselect previously selected
 			if (!this.options.multiSelect) {
 				$.each(this.findNodes('true', 'g', 'state.selected'), $.proxy(function (index, node) {
 					this.setSelectedState(node, false, options, 1);
 				}, this));
 			}
+
 
 			// Continue selecting node
 			node.state.selected = true;

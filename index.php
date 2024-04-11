@@ -147,6 +147,7 @@ plugs - https://github.com/summernote/awesome-summernote
 	<script src="assets/bootstrap.min.js"></script>
   	<script src="assets/bootstrap-treeview.js"></script>
 	<script src="assets/summernote.min.js"></script>
+	<script src="assets/md5.min.js"></script>
 	
 	<script>
 		//indicator 
@@ -216,8 +217,18 @@ plugs - https://github.com/summernote/awesome-summernote
 						data: data,
 						onNodeSelected: function(event, data) {
 							console.log(data);
+
+							if (data.nodes!=null)
+								$('#toc').treeview('expandNode', [ data.nodeId, { levels: 1, silent: true } ]);
+							
 							GetArticle();
-						}
+						},
+						onCustomEvent: function(event, node, state) {
+							console.log("tahoa");
+							console.log(node);
+							console.log("tahoa2");
+							return CanSelectQ();
+					    }
 					});
 
 					//collapse all by default
@@ -477,6 +488,34 @@ plugs - https://github.com/summernote/awesome-summernote
 			    // indicator(false);
 			})
 		}
+
+		function CanSelectQ(){
+			let s = GetSelectedID();
+			console.log(s);
+			if (s==null) return true;
+
+			let proceed = false;
+
+			indicator(true);
+
+			$.ajax({
+			    url: 'article.php',
+				type: "POST",
+				data: { action : 'CanSelectQ', id : s , md : md5($('#contents').val().trim()) },
+			    async: false,
+				dataType: 'json'				
+			}).done(function(data) {
+				proceed = data.proceed;
+			}).fail(function(jqXHR, textStatus) {
+				proceed=false;
+			    alert("Error occurred: " + textStatus);
+			}).always(function() {
+			    indicator(false);
+			})
+
+			return proceed;
+		}
+
 		function GetSelectedID() {
 			var k =  $('#toc').treeview('getSelected');
 			if (k.length==0)
