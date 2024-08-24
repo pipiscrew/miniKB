@@ -51,7 +51,7 @@ if you still unhappy with this microKB, there are alternatives as :
 * [mdBook](https://github.com/rust-lang/mdBook) [[2](https://rust-lang.github.io/mdBook/guide/creating.html)] - rust
 
 
-alternative [docmost](https://docmost.com) | [gitbook](https://github.com/GitbookIO/gitbook)  
+alternative [docmost](https://docmost.com) | [gitbook](https://github.com/GitbookIO/gitbook) | [retype](https://retype.com/)  
 
 ---
 
