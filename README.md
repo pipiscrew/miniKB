@@ -36,6 +36,7 @@ WshShell.Run "cmd /c php.exe -S localhost:80 -t ../htdocs/", 0, False
 ---
 
 if you still unhappy with this microKB, there are alternatives as :  
+* [68kb](https://github.com/umairulh2001/68kb) [[2](https://github.com/68kb/68kb)]
 * [BookStack](https://github.com/BookStackApp/BookStack) - php 41mb without the dependencies ;)
 * [phpMyFAQ](http://www.phpmyfaq.de/)
 * [dokuwiki](https://www.dokuwiki.org/)
